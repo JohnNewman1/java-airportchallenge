@@ -6,6 +6,7 @@ class Plane {
     }
 
     void land() {
+        if (!getFlying()) throw new Error("Plane already landed");
         this.flying = false;
     }
 
