@@ -12,7 +12,9 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'junit', name: 'junit', version: '5.0'
     testCompile "org.mockito:mockito-core:2.+"
+    // when using this, it worked with a junit 4 test
+    testCompile 'junit:junit:4.10'
+    // this should be needed for junit 5 (using M4 is required since IJ 2017.1.2
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-M4")
 }
