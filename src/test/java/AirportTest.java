@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 
@@ -23,14 +23,35 @@ class AirportTest {
 
 
     @Test
-    @DisplayName("Can instruct plane to land")
+    @DisplayName("Stores plane on landing")
+    void StorePlane(){
+        airport.land(plane);
+        assertTrue(airport.getPlanes().contains(plane));
+    }
+
+    @Test
+    @DisplayName("Plane land method is called")
     void InstructLanding(){
+        airport.land(plane);
+        verify(plane, times(1)).land();
 
     }
 
     @Test
-    @DisplayName("Can instruct plane to take off")
+    @DisplayName("Removes plane on takeoff")
+    void RemovePlane(){
+        airport.land(plane);
+        airport.takeOff(plane);
+        assertFalse(airport.getPlanes().contains(plane));
+
+    }
+
+    @Test
+    @DisplayName("Plane takeOff method is called")
     void InstructTakeOff(){
+        airport.land(plane);
+        airport.takeOff(plane);
+        verify(plane, times(1)).takeOff();
 
     }
 
