@@ -55,4 +55,12 @@ class AirportTest {
 
     }
 
+    @Test
+    @DisplayName("Plane cannot take off from airport it is not in")
+    void checkAirport(){
+        Airport airport2 = new Airport();
+        airport.land(plane);
+        assertThrows(Error.class, () -> airport2.takeOff(plane), "Plane is not in this airport!");
+    }
+
 }

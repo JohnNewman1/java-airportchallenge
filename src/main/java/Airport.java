@@ -13,6 +13,7 @@ class Airport {
     }
 
     void takeOff(Plane plane) {
+        if(!getPlanes().contains(plane)) throw new Error("Plane is not in this airport!");
         plane.takeOff();
         planes.remove(plane);
     }
