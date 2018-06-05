@@ -1,15 +1,15 @@
-public class Plane {
-    boolean flying = true;
+class Plane {
+    private boolean flying = true;
 
-    public void land() {
-        this.flying = false;
-    }
-
-    public boolean isFlying() {
+    boolean getFlying() {
         return flying;
     }
 
-    public void takeOff() {
+    void land() {
+        this.flying = false;
+    }
+
+    void takeOff() {
         this.flying = true;
     }
 }

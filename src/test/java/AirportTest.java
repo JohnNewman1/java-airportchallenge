@@ -7,11 +7,12 @@ import static org.mockito.Mockito.*;
 public class AirportTest {
     private Airport airport;
     private Plane plane;
+
     @BeforeEach
     public void setup(){
         airport = new Airport();
         plane = mock(Plane.class);
-        when(plane.isFlying()).thenReturn(false);
+        when(plane.getFlying()).thenReturn(false);
     }
 
 
@@ -21,8 +22,8 @@ public class AirportTest {
     }
 
     @Test
-    public void ArrayisEmptyd(){
-        assertFalse(plane.isFlying());
+    public void ArrayisEmptied(){
+        assertFalse(plane.getFlying());
     }
 
 }

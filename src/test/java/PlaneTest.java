@@ -1,31 +1,42 @@
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PlaneTest {
+class PlaneTest {
+
     private Plane plane;
+
     @BeforeEach
-    public void setup(){
+    void setup(){
         plane = new Plane();
     }
+
     @Test
-    public void planeisflying(){
-        assertEquals(true, plane.flying);
+    void planeFlying(){
+        assertTrue(plane.getFlying());
     }
 
 
     @Test
-    public void planelands(){
+    void planeLands(){
         plane.land();
-        assertEquals(false, plane.flying);
+        assertFalse(plane.getFlying());
     }
 
     @Test
-    public void planetakesoff(){
+    void planeTakesOff(){
         plane.land();
         plane.takeOff();
-        assertEquals(true, plane.flying);
+        assertTrue(plane.getFlying());
+    }
+
+    @Test
+    @DisplayName("Raise Error if plane is instructed to land when already landed")
+    void raiseError(){
+        plane.land();
+
     }
 
 }
