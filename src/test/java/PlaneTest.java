@@ -12,18 +12,21 @@ class PlaneTest {
     }
 
     @Test
+    @DisplayName("Plane returns a status")
     void planeFlying(){
         assertTrue(plane.getFlying());
     }
 
 
     @Test
+    @DisplayName("Plane returns status landed when landed")
     void planeLands(){
         plane.land();
         assertFalse(plane.getFlying());
     }
 
     @Test
+    @DisplayName("Plane returns status flying when flying")
     void planeTakesOff(){
         plane.land();
         plane.takeOff();
@@ -32,9 +35,18 @@ class PlaneTest {
 
     @Test
     @DisplayName("Raise Error if plane is instructed to land when already landed")
-    void raiseError(){
+    void raiseErrorLand(){
         plane.land();
-        assertThrows(Error.class, ()-> plane.land(), "Plane has already landed");
+        assertThrows(Error.class, ()-> plane.land(), "Plane already landed");
+
+    }
+
+    @Test
+    @DisplayName("Raise Error if plane is instructed to take off when already in air")
+    void raiseErrorTakeOff(){
+        plane.land();
+        plane.takeOff();
+        assertThrows(Error.class, ()-> plane.takeOff(), "Plane already taken off");
 
     }
 

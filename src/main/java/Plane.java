@@ -11,6 +11,7 @@ class Plane {
     }
 
     void takeOff() {
+        if (getFlying()) throw new Error("Plane already taken off");
         this.flying = true;
     }
 }

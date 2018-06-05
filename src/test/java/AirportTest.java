@@ -1,29 +1,37 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 
-public class AirportTest {
+class AirportTest {
     private Airport airport;
     private Plane plane;
 
     @BeforeEach
-    public void setup(){
+    void setup(){
         airport = new Airport();
         plane = mock(Plane.class);
         when(plane.getFlying()).thenReturn(false);
     }
 
+    @Test
+    @DisplayName("Default has empty planes array")
+    void checkPlanesArray(){
+        assertTrue(airport.getPlanes().isEmpty());
+    }
+
 
     @Test
-    public void ArrayisEmpty(){
-        assertEquals(airport.array.length, 0);
+    @DisplayName("Can instruct plane to land")
+    void InstructLanding(){
+
     }
 
     @Test
-    public void ArrayisEmptied(){
-        assertFalse(plane.getFlying());
+    @DisplayName("Can instruct plane to take off")
+    void InstructTakeOff(){
+
     }
 
 }
